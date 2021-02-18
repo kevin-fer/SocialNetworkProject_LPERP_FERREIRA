@@ -1,11 +1,13 @@
 <!-- Afficher avec une boucle *ngFor une liste de composant Post (PostComponent) -->
 <div class="container is-vertical">
-  <div class="notification is-primary">
+  <div class="notification is-link">
 
-    Réseau social <strong>Kéké</strong> pour mettre en relation des amigos.
+    <progress class="progress is-medium is-dark" max="100">45%</progress>
+    <h1 class="title has-text-centered is-uppercase">Réseau social <strong>Kéké</strong> pour mettre en relation des amigos.</h1>
+    <h4 class="title is-4">Ajouter un</h4>
     <app-add></app-add>
-    <app-post [post] ="post" *ngFor="let post of posts;"></app-post>
-
+    <h4 class="title is-4">Les Posts</h4>
+    <app-post class="blabla" [post] ="post" *ngFor="let post of posts;"></app-post>
   </div>
 </div>
 

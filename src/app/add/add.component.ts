@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-add',
@@ -8,11 +8,21 @@ import { FormControl } from '@angular/forms';
 })
 export class AddComponent implements OnInit {
 
-  title = new FormControl('');
+  postForm = new FormGroup({
+    title: new FormControl(''),
+    description: new FormControl(''),
+    link: new FormControl('')
+  });
 
-  addPost (): void {
+  addPost(): void {
 
-    
+
+  }
+
+  onSubmit() {
+    // TODO: Use EventEmitter with form value
+    console.warn(this.postForm.value);
+
   }
 
   constructor() {
@@ -20,6 +30,7 @@ export class AddComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
   }
 
 }
