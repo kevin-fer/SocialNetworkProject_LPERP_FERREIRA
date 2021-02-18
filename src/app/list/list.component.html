@@ -1,9 +1,9 @@
 <!-- Afficher avec une boucle *ngFor une liste de composant Post (PostComponent) -->
-
 <div class="container is-vertical">
   <div class="notification is-primary">
-    Réseau social <strong>Kéké</strong> pour mettre en relation des amigos.
 
+    Réseau social <strong>Kéké</strong> pour mettre en relation des amigos.
+    <app-add></app-add>
     <app-post [post] ="post" *ngFor="let post of posts;"></app-post>
 
   </div>
