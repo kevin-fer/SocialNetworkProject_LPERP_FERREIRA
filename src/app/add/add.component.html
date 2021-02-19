@@ -23,7 +23,7 @@
     </div>
 
     <div  class="field">
-      <button class="button" (click)="addNewItem()">Ajouter un Post</button>
+      <button class="button" (click)="addNewItem()" [disabled]="postForm.invalid">Ajouter un Post</button>
     </div>
 
   </div>
