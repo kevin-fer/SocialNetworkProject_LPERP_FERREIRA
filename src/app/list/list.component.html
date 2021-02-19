@@ -3,9 +3,9 @@
   <div class="notification is-link">
 
     <progress class="progress is-medium is-dark" max="100">45%</progress>
-    <h1 class="title has-text-centered is-uppercase">Réseau social <strong>Kéké</strong> pour mettre en relation des amigos.</h1>
-    <h4 class="title is-4">Ajouter un</h4>
-    <app-add></app-add>
+    <h1 class="title has-text-centered is-uppercase">Socialy Angular</h1>
+    <h4 class="title is-4">Ajouter un Post</h4>
+    <app-add (newItemEvent)="addItem($event)"></app-add>
     <h4 class="title is-4">Les Posts</h4>
     <app-post class="blabla" [post] ="post" *ngFor="let post of posts;"></app-post>
   </div>

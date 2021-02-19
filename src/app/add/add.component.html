@@ -1,29 +1,29 @@
-<form [formGroup]="postForm" (ngSubmit)="onSubmit()">
+<form [formGroup]="postForm" (ngSubmit)="onSubmit()" >
 
   <div class="level">
     <div  class="field">
         <label>
           Titre du Post :
-          <input class="input" type="text" placeholder="Title of the post" formControlName="title">
+          <input class="input" type="text" #title placeholder="Title of the post" formControlName="title">
         </label>
     </div>
 
     <div  class="field">
       <label>
         Description :
-        <input class="input" type="text" placeholder="Title of the post"   formControlName="description">
+        <input class="input" type="text" #description  placeholder="Description of the post"   formControlName="description">
       </label>
     </div>
 
     <div  class="field">
         <label>
           Lien :
-          <input class="input" type="text" placeholder="Link of the post" formControlName="link">
+          <input class="input" type="text" #link placeholder="Link of the post" formControlName="link">
         </label>
     </div>
 
     <div  class="field">
-      <button class="button" (click)="onSubmit()">Ajouter un Post</button>
+      <button class="button" (click)="addNewItem()">Ajouter un Post</button>
     </div>
 
   </div>

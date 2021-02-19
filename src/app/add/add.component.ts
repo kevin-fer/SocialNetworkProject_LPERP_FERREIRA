@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
+import { Post } from './../@shared/models/post';
 
 @Component({
   selector: 'app-add',
@@ -8,15 +9,24 @@ import { FormGroup, FormControl } from '@angular/forms';
 })
 export class AddComponent implements OnInit {
 
+  @Output() newItemEvent = new EventEmitter<Post>();
+
+ // value2transfert: Post;
+
   postForm = new FormGroup({
     title: new FormControl(''),
     description: new FormControl(''),
     link: new FormControl('')
   });
 
-  addPost(): void {
-
-
+  // tslint:disable-next-line: typedef
+  addNewItem(/*title: string, description: string, link: string*/) {
+    /*this.value2transfert.title = title;
+    this.value2transfert.description = description;
+    this.value2transfert.link = link;
+    console.log('Test 1' + title);
+    console.log('Test 2' + this.value2transfert.title);
+    */this.newItemEvent.emit(this.postForm.value);
   }
 
   onSubmit() {
@@ -34,3 +44,7 @@ export class AddComponent implements OnInit {
   }
 
 }
+function value(value: any) {
+  throw new Error('Function not implemented.');
+}
+
