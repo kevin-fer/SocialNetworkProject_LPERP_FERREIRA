@@ -20,6 +20,10 @@ export class ListComponent implements OnInit {
     console.log(newItem.title);
   }
 
+  removeItem (newItem: Post) {
+    //this.posts.splice(newItem);
+  }
+
   ngOnInit(): void {
     console.log("posts > ", this.posts);
   }

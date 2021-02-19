@@ -1,5 +1,5 @@
 import { Post } from './../@shared/models/post';
-import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-post',
@@ -11,8 +11,12 @@ export class PostComponent implements OnInit, OnDestroy {
   collapsed: boolean;
 
   @Input() post: Post;
+  @Output() newItemEvent = new EventEmitter<Post>();
 
   constructor() { }
+  onDeleteButton(){
+    this.newItemEvent.emit(this.post);
+  }
 
   ngOnInit(): void {
 
