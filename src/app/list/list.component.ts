@@ -23,6 +23,8 @@ export class ListComponent implements OnInit {
   removeItem (newItem: Post) {
     //this.posts.splice(newItem);
     for (let i = 0; i < this.posts.length; i++) {
+      console.log("on passe le for");
+      console.log(i);
       if(newItem.id === this.posts[i].id) {
         this.posts.splice(i, 1);
       }
