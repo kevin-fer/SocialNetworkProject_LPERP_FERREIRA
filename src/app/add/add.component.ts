@@ -1,5 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Post } from './../@shared/models/post';
 
 @Component({
@@ -14,8 +14,8 @@ export class AddComponent implements OnInit {
  // value2transfert: Post;
 
   postForm = new FormGroup({
-    title: new FormControl(''),
-    description: new FormControl(''),
+    title: new FormControl('', Validators.required),
+    description: new FormControl('', Validators.required),
     link: new FormControl('')
   });
 

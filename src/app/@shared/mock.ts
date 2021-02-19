@@ -43,12 +43,5 @@ export const POSTS: Post[] = [
     link: "https://ionicframework.com/",
     description: "One codebase. Any platform. Now in Angular",
     icon: null
-  },
-  {
-    id: IdGeneratorUtils.uuidv4(),
-    title: "Dayano le cheval de course a gagné !!",
-    link: "https://equitationensamusant.com/",
-    description: "Pour la victoire de son cheval, jockey Dayana khalassera un BK à toute la promo",
-    icon: null
   }
 ];
