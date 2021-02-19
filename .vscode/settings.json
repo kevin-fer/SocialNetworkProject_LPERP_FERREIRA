@@ -1,3 +1,4 @@
 {
-    "python.pythonPath": "C:\\Users\\Kevin\\anaconda3\\envs\\mongo\\python.exe"
+    "python.pythonPath": "C:\\Users\\Kevin\\anaconda3\\envs\\mongo\\python.exe",
+    "git.followTagsWhenSync": true
 }
