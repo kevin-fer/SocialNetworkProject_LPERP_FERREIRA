@@ -1,7 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Post } from './../@shared/models/post';
-
+import { IdGeneratorUtils } from './../@shared/utils/id-generator.utils';
 @Component({
   selector: 'app-add',
   templateUrl: './add.component.html',
@@ -21,14 +21,21 @@ export class AddComponent implements OnInit {
 
   // tslint:disable-next-line: typedef
   addNewItem(/*title: string, description: string, link: string*/) {
-    /*this.value2transfert.title = title;
-    this.value2transfert.description = description;
-    this.value2transfert.link = link;
-    console.log('Test 1' + title);
-    console.log('Test 2' + this.value2transfert.title);
-    */
-    this.newItemEvent.emit(this.postForm.value);
-    this.postForm.reset
+
+    const post: Post = {
+      id: IdGeneratorUtils.uuidv4(),
+      link: this.postForm.get('link').value,
+      title: this.postForm.get('title').value,
+      description: this.postForm.get('description').value
+    }
+
+    //this.newItemEvent.emit(this.postForm.value);
+    this.newItemEvent.emit(post);
+    this.postForm.reset({
+      title: {value: '', disabled: false},
+      description: {value: '', disabled: false},
+      link: {value: '', disabled: false}
+    });
   }
 
   addPost() {
