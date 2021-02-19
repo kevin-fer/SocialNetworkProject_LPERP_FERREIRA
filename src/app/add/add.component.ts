@@ -26,7 +26,9 @@ export class AddComponent implements OnInit {
     this.value2transfert.link = link;
     console.log('Test 1' + title);
     console.log('Test 2' + this.value2transfert.title);
-    */this.newItemEvent.emit(this.postForm.value);
+    */
+    this.newItemEvent.emit(this.postForm.value);
+    this.postForm.reset
   }
 
   addPost() {
