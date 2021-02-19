@@ -15,7 +15,8 @@ export class ListComponent implements OnInit {
   constructor() { }
 
   addItem(newItem: Post) {
-    this.posts.push(newItem);
+    //this.posts.push(newItem);
+    this.posts.unshift(newItem);
     console.log(newItem.title);
   }
 

@@ -29,6 +29,11 @@ export class AddComponent implements OnInit {
     */this.newItemEvent.emit(this.postForm.value);
   }
 
+  addPost() {
+    //const post: Post
+
+  }
+
   onSubmit() {
     // TODO: Use EventEmitter with form value
     console.warn(this.postForm.value);
