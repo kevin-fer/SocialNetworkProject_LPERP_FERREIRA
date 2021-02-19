@@ -14,6 +14,7 @@ export class PostComponent implements OnInit, OnDestroy {
   @Output() newItemEvent = new EventEmitter<Post>();
 
   constructor() { }
+
   onDeleteButton(){
     this.newItemEvent.emit(this.post);
   }
