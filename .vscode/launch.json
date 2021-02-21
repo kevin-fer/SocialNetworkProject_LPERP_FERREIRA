@@ -1,0 +1,28 @@
+{
+    // Utilisez IntelliSense pour en savoir plus sur les attributs possibles.
+    // Pointez pour afficher la description des attributs existants.
+    // Pour plus d'informations, visitez : https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+
+        {
+            "type": "edge",
+            "request": "launch",
+            "name": "Lancer Edge en utilisant localhost",
+            "url": "http://localhost:4200",
+            "webRoot": "${workspaceFolder}"
+        },
+        {
+            "name": "Launch Microsoft Edge and open the Edge DevTools",
+            "request": "launch",
+            "type": "vscode-edge-devtools.debug",
+            "url": "http://localhost:8080"
+        },
+        {
+            "name": "Launch Microsoft Edge and open the Network tool",
+            "request": "launch",
+            "type": "network-edge-devtools.debug",
+            "url": "http://localhost:8080"
+        }
+    ]
+}
