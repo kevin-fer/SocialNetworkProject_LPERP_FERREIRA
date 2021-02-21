@@ -1,0 +1,19 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "npm",
+			"script": "ng",
+			"problemMatcher": [],
+			"label": "npm: ng",
+			"detail": "ng"
+		},
+
+    {
+			"label": "ng serve",
+      "type" : "shell",
+      "command" : "\" start ng serve\""
+
+		}
+	]
+}
