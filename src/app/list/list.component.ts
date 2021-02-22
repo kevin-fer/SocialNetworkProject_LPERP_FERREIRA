@@ -26,6 +26,7 @@ export class ListComponent implements OnInit {
       console.log("on passe le for");
       console.log(i);
       if(newItem.id === this.posts[i].id) {
+        console.log("Nous supprimons l'article : " + this.posts[i].id)
         this.posts.splice(i, 1);
       }
     }

@@ -1,13 +1,23 @@
 <div class="card">
   <header class="card-header">
+    <div class="card-header-icon">
+      <figure class="image is-48x48">
+        <img src = {{post.icon}}>
+      </figure>
+    </div>
     <p class="card-header-title">
       {{ post.title }}
-    </p>  <button class="button is-danger is-light" (click)="onDeleteButton()">Supprimer</button>
-    <!-- <span class="icon">
+    </p>
+
+    <div class="right">
+      <button class="delete is-medium" (click)="onDeleteButton()"></button>
+    </div>
+
+    <span class="icon">
         <i class="fas fa-angle-down" aria-hidden="true"></i>
       </span>
-    </button>-->
   </header>
+
   <div class="card-content">
     <div class="content">
       {{post.description}}
@@ -16,6 +26,7 @@
       <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
     </div>
   </div>
+
   <footer class="card-footer">
     <a href="#" class="card-footer-item">Vote</a>
     <a href="{{post.link}}" class="card-footer-item">Lien</a>
