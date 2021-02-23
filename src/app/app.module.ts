@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { PostComponent } from './post/post.component';
 import { ListComponent } from './list/list.component';
 import { AddComponent } from './add/add.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { AddComponent } from './add/add.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

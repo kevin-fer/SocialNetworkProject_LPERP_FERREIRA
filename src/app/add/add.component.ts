@@ -16,7 +16,8 @@ export class AddComponent implements OnInit {
   postForm = new FormGroup({
     title: new FormControl('', Validators.required),
     description: new FormControl('', Validators.required),
-    link: new FormControl('')
+    link: new FormControl(''),
+    icon: new FormControl('')
   });
 
   // tslint:disable-next-line: typedef
@@ -26,7 +27,8 @@ export class AddComponent implements OnInit {
       id: IdGeneratorUtils.uuidv4(),
       link: this.postForm.get('link').value,
       title: this.postForm.get('title').value,
-      description: this.postForm.get('description').value
+      description: this.postForm.get('description').value,
+      icon: this.postForm.get('icon').value
     }
 
     //this.newItemEvent.emit(this.postForm.value);
@@ -34,7 +36,8 @@ export class AddComponent implements OnInit {
     this.postForm.reset({
       title: {value: '', disabled: false},
       description: {value: '', disabled: false},
-      link: {value: '', disabled: false}
+      link: {value: '', disabled: false},
+      icon: {value: '', disabled: false}
     });
   }
 
