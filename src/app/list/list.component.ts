@@ -29,6 +29,11 @@ export class ListComponent implements OnInit {
     });
   }
 
+  setPosts () {
+    for (let i = 0; i < POSTS.length; i++) {
+      this.addItem(POSTS[i]);
+    }
+  }
   removeItem (newItem: Post) {
     //this.posts.splice(newItem);
     for (let i = 0; i < this.posts.length; i++) {
@@ -43,6 +48,7 @@ export class ListComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.setPosts();
     this.getPosts();
     console.log("posts > ", this.posts);
   }
