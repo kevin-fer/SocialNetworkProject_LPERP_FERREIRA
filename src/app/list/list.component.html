@@ -10,7 +10,7 @@
           <!--<h2 class="subtitle">
             A simple container to divide your page into <strong>sections</strong>, like the one you're currently reading.
           </h2>-->
-          <app-add (newItemEvent)="addItem($event)"></app-add>
+          <app-add (newItemEvent)="addItem($event)" [postEditing] = "postEditing" ></app-add>
         </section>
       </div>
       <div class="level-item">

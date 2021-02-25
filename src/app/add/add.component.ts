@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output, Input } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Post } from './../@shared/models/post';
 import { IdGeneratorUtils } from './../@shared/utils/id-generator.utils';
@@ -10,13 +10,22 @@ import { IdGeneratorUtils } from './../@shared/utils/id-generator.utils';
 export class AddComponent implements OnInit {
 
   @Output() newItemEvent = new EventEmitter<Post>();
-
+  @Input("postEditing") set postEditing(post: Post) {
+    if(!post){
+      return;
+    }
+    this.postForm.patchValue({
+        title: post.title,
+        description: post.description,
+        link: post.link,
+        icon: post.icon
+    })
+  };
  // value2transfert: Post;
-
   postForm = new FormGroup({
     title: new FormControl('', Validators.required),
-    description: new FormControl('', Validators.required),
-    link: new FormControl(''),
+    description: new FormControl(''),
+    link: new FormControl('', Validators.required),
     icon: new FormControl('')
   });
 
@@ -24,7 +33,7 @@ export class AddComponent implements OnInit {
   addNewItem(/*title: string, description: string, link: string*/) {
 
     const post: Post = {
-      id: IdGeneratorUtils.uuidv4(),
+     // id: IdGeneratorUtils.uuidv4(),
       link: this.postForm.get('link').value,
       title: this.postForm.get('title').value,
       description: this.postForm.get('description').value,

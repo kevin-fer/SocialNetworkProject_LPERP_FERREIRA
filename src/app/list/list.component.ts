@@ -12,16 +12,22 @@ import { Post } from '../@shared/models/post';
 export class ListComponent implements OnInit {
 
   posts: Post[]; //= POSTS;
-  query2do: boolean;
+  postEditing: Post;
 
   constructor(private postService: PostService) { }
 
   addItem(newItem: Post) {
     //this.posts.push(newItem);
     //this.posts.unshift(newItem);
-    this.postService.addPost(newItem).subscribe(
-      post => this.posts.unshift(post));
+    if(!newItem._id) {
+      this.postService.addPost(newItem).subscribe(
+        post => this.posts.unshift(post));
     //console.log(newItem.title);
+    }
+    else {
+      this.postService.edit(newItem._id, newItem).subscribe();
+    }
+
   }
 
   getPosts () {
@@ -36,9 +42,9 @@ export class ListComponent implements OnInit {
     }
   }
 
-  setQuery(query: boolean) {
+ /* setQuery(query: boolean) {
     this.query2do = query;
-  }
+  }*/
 
   removeItem (post: Post) {
     //this.posts.splice(newItem);
@@ -62,6 +68,7 @@ export class ListComponent implements OnInit {
 
   edit(post: Post) {
      console.log("youpi");
+     this.postEditing = post;
 
   }
 
