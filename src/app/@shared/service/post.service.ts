@@ -4,12 +4,12 @@ import { Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
 import { Post } from '../models/post';
 
-const postsList = "https://crudcrud.com/api/fd0d1440c98c49bc8c5e02f08f3d8f83"
+const postsList = "https://crudcrud.com/api/18a70ff6ae704a818716fbb8c77afbb2"
 
 @Injectable({
   providedIn: 'root'
 })
-export class PostServiceService implements OnInit {
+export class PostService implements OnInit {
 
   constructor(private http: HttpClient) {
 
@@ -19,14 +19,20 @@ export class PostServiceService implements OnInit {
 getPosts(): Observable<any> {
   return this.http.get(postsList+"/posts");
 }
-  /** POST: add a new hero to the database */
+  /** POST: add a new post to the database */
 addPost(post: Post): Observable<Post> {
   return this.http.post<Post>(postsList+"/posts", post);
 }
-/** DELETE: delete the hero from the server */
+/** DELETE: delete the post from the server */
 deletePost(id: string): Observable<{}> {
-  const url = postsList + "/posts/" + id; // DELETE api/heroes/42
+  const url = postsList + "/posts/" + id; // DELETE api/posts/42125452
   return this.http.delete(url);
+}
+
+edit(postId: string, postEdited: Post) {
+  //NOTE: postEdited ne doit pas avoir de propriété _id, l'api de crudcrud.com ne l'autorise pas avec le PUT
+  //NOTE: si besoin de supprimer la propriété => delete postEdited._id
+  return this.http.put(`${postsList}/posts/${postId}`, postEdited);
 }
 
 ngOnInit(): void {

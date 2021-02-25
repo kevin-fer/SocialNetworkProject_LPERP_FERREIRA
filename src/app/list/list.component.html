@@ -17,7 +17,7 @@
         <section class="section">
           <h1 class="title">Les Posts</h1>
           <div style="overflow-y: scroll; height:500px;">
-            <app-post (newItemEvent)="removeItem($event)" class="blabla" [post] ="post" *ngFor="let post of posts;"></app-post>
+            <app-post (newItemEvent)="removeItem($event)" (editEvent)="edit($event)" class="blabla" [post] ="post" *ngFor="let post of posts;"></app-post>
           </div>
         </section>
       </div>

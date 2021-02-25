@@ -12,13 +12,19 @@ export class PostComponent implements OnInit, OnDestroy {
 
   @Input() post: Post;
   @Output() newItemEvent = new EventEmitter<Post>();
+  @Output() editEvent = new EventEmitter<Post>();
+ // @Output() query = new EventEmitter<boolean>();
 
   constructor() { }
 
   onDeleteButton(){
+   // this.query.emit(false);
     this.newItemEvent.emit(this.post);
   }
-
+  onEditButton() {
+   // this.query.emit(true);
+    this.editEvent.emit(this.post);
+  }
   ngOnInit(): void {
 
   }
