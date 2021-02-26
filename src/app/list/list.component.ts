@@ -95,7 +95,7 @@ export class ListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.setPosts(); // Pour générer des posts dans le serveur dès l'initalisation
+    //this.setPosts(); // Pour générer des posts dans le serveur dès l'initalisation
     this.getPosts(); // Pour faire un GET dès l'initialisation
     console.log("posts > ", this.posts);
   }
