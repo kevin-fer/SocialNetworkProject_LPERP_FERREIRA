@@ -13,8 +13,9 @@ export class ListComponent implements OnInit {
 
   posts: Post[]; //= POSTS;
   postEditing: Post = null;
-  isSet: boolean = false;
-  id: string;
+  id: string; // ID du post édité
+
+  // @Author Kévin Ferreira
   constructor(private postService: PostService) { }
 
   addItem(newItem: Post) {
@@ -40,8 +41,8 @@ export class ListComponent implements OnInit {
           console.log('Erreur ! : ' + error);
         }
       );
-      
-      console.log("on entre dans le else");
+
+      console.log("on entre dans le else pour l'édition du post");
       this.postEditing = null;
       location.reload();
     }
@@ -54,6 +55,7 @@ export class ListComponent implements OnInit {
     });
   }
 
+  // FOnction qui sert à entrer les posts du MOCK.TS dans la BDD distante
   setPosts () {
     for (let i = 0; i < POSTS.length; i++) {
       this.addItem(POSTS[i]);
@@ -70,6 +72,8 @@ export class ListComponent implements OnInit {
     //if(this.query2do === false) {
       this.postService.deletePost(post._id).subscribe();
       this.posts.splice(this.posts.indexOf(post, 0) , 1);
+
+      // Ancien méthode
      /* for (let i = 0; i < this.posts.length; i++) {
         console.log("on passe le for");
         console.log(i);
@@ -91,8 +95,8 @@ export class ListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.setPosts(); // Pour générer des posts dans le serveurdès l'initalisation
-    this.getPosts();
+    this.setPosts(); // Pour générer des posts dans le serveur dès l'initalisation
+    this.getPosts(); // Pour faire un GET dès l'initialisation
     console.log("posts > ", this.posts);
   }
 

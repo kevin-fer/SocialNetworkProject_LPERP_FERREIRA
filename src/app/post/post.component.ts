@@ -15,7 +15,9 @@ export class PostComponent implements OnInit, OnDestroy {
   @Output() editEvent = new EventEmitter<Post>();
  // @Output() query = new EventEmitter<boolean>();
 
-  constructor() { }
+  constructor() {
+
+   }
 
   onDeleteButton(){
    // this.query.emit(false);
@@ -31,10 +33,6 @@ export class PostComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     //TODO
-  }
-
-  toggle() {
-
   }
 
 }

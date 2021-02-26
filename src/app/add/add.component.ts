@@ -7,6 +7,8 @@ import { IdGeneratorUtils } from './../@shared/utils/id-generator.utils';
   templateUrl: './add.component.html',
   styleUrls: ['./add.component.scss']
 })
+
+// @Author Kévin Ferreira
 export class AddComponent implements OnInit {
 
   @Output() newItemEvent = new EventEmitter<Post>();
@@ -23,7 +25,7 @@ export class AddComponent implements OnInit {
   };
  // value2transfert: Post;
   postForm = new FormGroup({
-    title: new FormControl('', Validators.required),
+    title: new FormControl('', Validators.required), // Champs oblig
     description: new FormControl(''),
     link: new FormControl('', Validators.required),
     icon: new FormControl('')
