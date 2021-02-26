@@ -6,6 +6,7 @@ import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angu
   templateUrl: './post.component.html',
   styleUrls: ['./post.component.scss']
 })
+// @Author Kévin Ferreira
 export class PostComponent implements OnInit, OnDestroy {
 
   collapsed: boolean;
