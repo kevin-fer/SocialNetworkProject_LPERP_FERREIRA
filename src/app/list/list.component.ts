@@ -12,20 +12,38 @@ import { Post } from '../@shared/models/post';
 export class ListComponent implements OnInit {
 
   posts: Post[]; //= POSTS;
-  postEditing: Post;
-
+  postEditing: Post = null;
+  isSet: boolean = false;
+  id: string;
   constructor(private postService: PostService) { }
 
   addItem(newItem: Post) {
     //this.posts.push(newItem);
     //this.posts.unshift(newItem);
-    if(!newItem._id) {
+    console.log(this.postEditing);
+    if(this.postEditing === null) {
       this.postService.addPost(newItem).subscribe(
         post => this.posts.unshift(post));
     //console.log(newItem.title);
     }
     else {
-      this.postService.edit(newItem._id, newItem).subscribe();
+      // tslint:disable-next-line: deprecation
+      console.log(this.postEditing._id);
+
+      this.id = this.postEditing._id;
+      this.postEditing._id = "";
+      this.postService.edit(this.id, newItem).subscribe(
+        () => {
+          console.log('Enregistrement terminé !');
+        },
+        (error) => {
+          console.log('Erreur ! : ' + error);
+        }
+      );
+      
+      console.log("on entre dans le else");
+      this.postEditing = null;
+      location.reload();
     }
 
   }

@@ -1,10 +1,16 @@
 import { Injectable, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
 import { Post } from '../models/post';
 
-const postsList = "https://crudcrud.com/api/2aaf58f9528f4406b101233b5fee8c77";
+const postsList = 'https://crudcrud.com/api/0f133cdcb8724a15adf7e224701f607e';
+
+const optionRequete = {
+  headers: new HttpHeaders({
+    'Access-Control-Allow-Origin':'*'
+  })
+};
 
 @Injectable({
   providedIn: 'root'
@@ -29,10 +35,10 @@ deletePost(id: string): Observable<{}> {
   return this.http.delete(url);
 }
 
-edit(postId: string, postEdited: Post) {
+edit(postId: string, postEdited: Post): Observable<any> {
   //NOTE: postEdited ne doit pas avoir de propriété _id, l'api de crudcrud.com ne l'autorise pas avec le PUT
   //NOTE: si besoin de supprimer la propriété => delete postEdited._id
-  return this.http.put(`${postsList}/posts/${postId}`, postEdited);
+  return this.http.put<Post>(`${postsList}/posts/${postId}`, postEdited);
 }
 
 ngOnInit(): void {
