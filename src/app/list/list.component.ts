@@ -70,8 +70,11 @@ export class ListComponent implements OnInit {
     //this.posts.splice(newItem);
     //this.postService.deletePost(post._id).subscribe();
     //if(this.query2do === false) {
-      this.postService.deletePost(post._id).subscribe();
-      this.posts.splice(this.posts.indexOf(post, 0) , 1);
+      this.postService.deletePost(post._id).subscribe(verif => {
+        this.posts.splice(this.posts.indexOf(post, 0) , 1);
+        console.log("Post supprimé");
+      });
+
 
       // Ancien méthode
      /* for (let i = 0; i < this.posts.length; i++) {
